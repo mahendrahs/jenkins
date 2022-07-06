@@ -20,6 +20,15 @@ pipeline {
                 echo "$var1 Mahendra $var2"
             }
         }
+        
+        stage('using groovy scripts in DSL pipeline') { 
+            steps {
+                script {
+                   def gv = load "script1.groovy"
+                   gv.buildApp()
+                }
+            }
+        }
     }
 
     post {
